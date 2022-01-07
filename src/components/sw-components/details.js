@@ -25,14 +25,13 @@ const PersonDetails = ({selectedItem,children})=>{
         )
 };
 const PlanetDetails = ({selectedItem,children})=>{
-    const params = useParams()
-    console.log(params);
+    const {id} = useParams();
     return(
         <Consumer>
             {
             ({getPlanet,getPlanetImage})=>{
                 return(
-                    <ItemDetails selectedItem={selectedItem} 
+                    <ItemDetails selectedItem={selectedItem ?? id} 
                     getData={getPlanet} 
                     dataImage={getPlanetImage}>
                     {children}
@@ -61,6 +60,5 @@ const ShipDetails = ({selectedItem,children})=>{
         </Consumer>
     )
 };
-
 
 export{PersonDetails, PlanetDetails, ShipDetails};

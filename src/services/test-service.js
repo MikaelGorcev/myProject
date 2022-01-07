@@ -100,8 +100,8 @@ export default class TestService {
           return this._transformPerson(...person)
       }
        getPlanet= async (id)=>{
-        const planet = this._planets.filter(item=>item.id===id);
-        return this._transformPlanet(...planet);
+        const planet = this._planets.find(item=>item.id==id);
+        return this._transformPlanet(planet);
     }
      getAllShips= async ()=>{
         const res = this._starships;

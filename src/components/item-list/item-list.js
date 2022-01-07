@@ -7,7 +7,7 @@ const  renderItems=(arr)=>{
        return arr.map((item)=>{
            const {id}=item;
            const value =props.children(item) 
-           return (<li key={id} onClick={()=> props.idSelect(id)}><Link to="details/1">{value}</Link></li>)
+           return (<li key={id} onClick={()=> props.idSelect(id)}><Link to={`${id}`}>{value}</Link></li>)
         })
     };
 const item=renderItems(props.dataItem);
