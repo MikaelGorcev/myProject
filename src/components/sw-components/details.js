@@ -25,14 +25,15 @@ const PersonDetails = ({selectedItem,children})=>{
         )
 };
 const PlanetDetails = ({selectedItem,children})=>{
-    const params = useParams()
-    console.log(params);
+    const param = useParams().id
+    console.log(param);
     return(
         <Consumer>
             {
             ({getPlanet,getPlanetImage})=>{
                 return(
-                    <ItemDetails selectedItem={selectedItem} 
+                    <ItemDetails selectedItem={selectedItem || param} 
+                    
                     getData={getPlanet} 
                     dataImage={getPlanetImage}>
                     {children}

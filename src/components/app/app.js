@@ -1,7 +1,7 @@
 import React from "react";
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
-import { BrowserRouter,Route, Routes, } from "react-router-dom";
+import { BrowserRouter,Route, Routes} from "react-router-dom";
 import { PlanetDetails } from "../sw-components";
 import TestService from "../../services/test-service";
 import SwapiService from "../../services/swapi-service";
@@ -20,7 +20,7 @@ export default class App extends React.Component {
 
     state={
         
-        swapiServis:new TestService(),
+        swapiServis:new SwapiService(),
         
         
     }
@@ -44,15 +44,21 @@ export default class App extends React.Component {
             <Provider value={this.state.swapiServis}>
                 <BrowserRouter>
                 
-                    <Header changeContent={this.contentChange}/>
-                    <RandomPlanet swapiServis={this.state.swapiServis}/>
+                    
+                   
                         <Routes>
-                            <Route index element={<h2>Welcome to San Francisco</h2>}/> 
-                            <Route  path="people" element={<PeopleBlock/>}/>
-                            <Route  path="ship" element={<ShipBlock/>}/>
-                            <Route  path="planet/*" element={<PlanetBlock/>}/>
-                            {/* <Route  path='planet/:id' element={<PlanetDetails/>}/>   */}
+                            <Route path="/" element={<Header changeContent={this.contentChange}/>}>
+                                <Route index element= {<RandomPlanet swapiServis={this.state.swapiServis}/>    }/>
+                                <Route index element={<h2>Welcome to San Francisco</h2>}/> 
+                                <Route  path="people" element={<PeopleBlock/>}/>
+                                <Route  path="ship" element={<ShipBlock/>}/>
+                                <Route  path="planet/*" element={<PlanetBlock/>}/>
+                                {/* <Route  path="planet/:id" element={<PlanetBlock/>}/> */}
+                                
+                                <Route  path='planet/:id' element={<PlanetDetails/>}/>  
+                            </Route>
                         </Routes>
+                        
                 </BrowserRouter>
             </Provider>
             
