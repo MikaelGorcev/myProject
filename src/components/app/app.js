@@ -1,8 +1,8 @@
 import React from "react";
 import Header from '../header/header';
-import RandomPlanet from '../random-planet/random-planet';
-import { BrowserRouter,Route, Routes} from "react-router-dom";
-import { PlanetDetails } from "../sw-components";
+
+import { BrowserRouter,Route, Routes,Outlet} from "react-router-dom";
+import { PlanetDetails,ShipDetails,PersonDetails } from "../sw-components";
 import TestService from "../../services/test-service";
 import SwapiService from "../../services/swapi-service";
 
@@ -47,14 +47,13 @@ export default class App extends React.Component {
                     
                    
                         <Routes>
-                            <Route path="/" element={<Header changeContent={this.contentChange}/>}>
-                                <Route index element= {<RandomPlanet swapiServis={this.state.swapiServis}/>    }/>
-                                <Route index element={<h2>Welcome to San Francisco</h2>}/> 
+                            <Route path="/" element={
+                                <Header changeContent={this.contentChange} swapiServis={this.state.swapiServis}/> }>
                                 <Route  path="people" element={<PeopleBlock/>}/>
                                 <Route  path="ship" element={<ShipBlock/>}/>
-                                <Route  path="planet/*" element={<PlanetBlock/>}/>
-                                {/* <Route  path="planet/:id" element={<PlanetBlock/>}/> */}
-                                
+                                <Route  path="planet" element={<PlanetBlock/>}/>
+                                <Route  path="people/:id" element={<PersonDetails/>}/>
+                                <Route  path="ship/:id" element={<ShipDetails/>}/>         
                                 <Route  path='planet/:id' element={<PlanetDetails/>}/>  
                             </Route>
                         </Routes>

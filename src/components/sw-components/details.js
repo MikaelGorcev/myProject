@@ -6,14 +6,14 @@ import { useParams } from "react-router-dom";
 
 
 const PersonDetails = ({selectedItem,children})=>{
-    
+    const param = useParams().id
     
     return(
             <Consumer>
                 {
                     ({getPerson,getPersonImage})=> {
                         return(
-                            <ItemDetails selectedItem={selectedItem} 
+                            <ItemDetails selectedItem={selectedItem || param} 
                             getData={getPerson} 
                             dataImage={getPersonImage}>
                             {children}
@@ -26,7 +26,7 @@ const PersonDetails = ({selectedItem,children})=>{
 };
 const PlanetDetails = ({selectedItem,children})=>{
     const param = useParams().id
-    console.log(param);
+    
     return(
         <Consumer>
             {
@@ -45,13 +45,13 @@ const PlanetDetails = ({selectedItem,children})=>{
         )
 };
 const ShipDetails = ({selectedItem,children})=>{
-    
+    const param = useParams().id
     return(
         <Consumer>
             {
                 ({getShip,getShipImage})=> {
                     return(
-                        <ItemDetails selectedItem={selectedItem} 
+                        <ItemDetails selectedItem={selectedItem || param}  
                         getData={getShip} 
                         dataImage={getShipImage}>
                         {children}

@@ -63,8 +63,8 @@ const PlanetBlock =()=>{
                 <ErrorCompon>
                     <PlanetList idSelect={idSelectPlanet} />
                 </ErrorCompon>
-            <Routes>
-                <Route path="planet/:id" element={
+            
+                
                 
                     <ErrorCompon>
                         
@@ -72,9 +72,9 @@ const PlanetBlock =()=>{
                             <BlockItemText field='name' label='имя'/>
                         </PlanetDetails>
                         
-                    </ErrorCompon>}/>
+                    </ErrorCompon>
                     
-            </Routes>
+            
             </div>
     )
 };

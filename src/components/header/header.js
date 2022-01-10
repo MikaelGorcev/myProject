@@ -1,7 +1,8 @@
 import React from "react";
 import { Link,useNavigate, Outlet} from "react-router-dom";
+import RandomPlanet from "../random-planet/random-planet";
 import './header.css'
-const Header = ({changeContent})=>{
+const Header = ({changeContent,swapiServis})=>{
     const navigation = useNavigate()
     const goBack=()=>navigation(-1);
     const goForward=()=>navigation(1)
@@ -20,7 +21,8 @@ const Header = ({changeContent})=>{
                     <button className="toggle" onClick={goForward}>Вперед</button>
                 </ul>
                 <button className="toggle" onClick={changeContent}>чик-чик</button>
-            </nav>  
+            </nav> 
+            <RandomPlanet swapiServis={swapiServis}/> 
             <Outlet/>
         </> 
     )

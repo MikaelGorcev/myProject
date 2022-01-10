@@ -12,7 +12,7 @@ const ItemList =(props)=>{
             const {id}=item;
             // const {params} = props.urlParams;
             const value =props.children(item) 
-            return (<Link to={`/planet/${id}`} key={id}><li  onClick={()=> props.idSelect(id)}>{value}</li></Link>)
+            return (<Link to={`${id}`} key={id}><li  onClick={()=> props.idSelect(id)}>{value}</li></Link>)
             })
         };
     const item=renderItems(props.dataItem);
