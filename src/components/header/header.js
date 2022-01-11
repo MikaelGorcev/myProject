@@ -14,9 +14,9 @@ const Header = ({changeContent,swapiServis})=>{
                 <ul>
                     <button className="toggle" onClick={goBack}>Назад</button>
                     <button className="toggle" ><Link to="/">Домой</Link></button>
-                    <li><Link to="people">Персонажи</Link></li>
-                    <li><Link to="ship">Корабли</Link></li>
-                    <li><Link to="planet">Планеты</Link></li>
+                    <li><Link to="people/details">Персонажи</Link></li>
+                    <li><Link to="ship/details">Корабли</Link></li>
+                    <li><Link to="planet/details">Планеты</Link></li>
                     {/* <li><Link to="planet/1">Детали</Link></li> */}
                     <button className="toggle" onClick={goForward}>Вперед</button>
                 </ul>

@@ -1,8 +1,8 @@
 import React from "react";
 import Header from '../header/header';
 
-import { BrowserRouter,Route, Routes,Outlet} from "react-router-dom";
-import { PlanetDetails,ShipDetails,PersonDetails } from "../sw-components";
+import { BrowserRouter,Route, Routes} from "react-router-dom";
+
 import TestService from "../../services/test-service";
 import SwapiService from "../../services/swapi-service";
 

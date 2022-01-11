@@ -96,6 +96,7 @@ export default class TestService {
     }
     //передает для каждой планеты свои характеристики
       getPerson= async (id)=>{
+        console.log(id);
           const person = this._people.filter(item=>item.id==id);
           return this._transformPerson(...person)
       }

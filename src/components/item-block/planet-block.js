@@ -1,8 +1,9 @@
 import React from "react";
 import {BlockItemText} from '../item-details/item-details';
 import {PlanetList,PlanetDetails} from '../sw-components/index';
-import { useState } from "react";
-import { useParams,Route,Routes} from "react-router-dom";
+import { useState} from "react";
+import EmptyComponent from "../empty-component/emptyComponent";
+import { Route,Routes,} from "react-router-dom";
 import ErrorCompon from "../error-view/error-view";
 
 
@@ -54,10 +55,24 @@ import ErrorCompon from "../error-view/error-view";
 const PlanetBlock =()=>{
     const [planetId,setPlanetId]=useState(null);
     
-    
+   
     const idSelectPlanet=(id)=>{
                             setPlanetId(id)
                          }
+    
+    // const ChangeView =({anyId})=>{
+    //     const p = useParams();
+    //     console.log(p);
+    //     if (!anyId ){return (<div className='emptyComponent'><p>Выбери персонажа</p></div>)}
+    //     else return (<Routes>
+    //         <Route path={"details/:id"} element={
+    //         <PlanetDetails selectedItem={anyId}>
+    //             <BlockItemText field='name' label='имя'/>
+    //         </PlanetDetails>}/>
+        
+    //     </Routes>)
+    // }     
+
     return(
             <div className='d-flex justify-content-between'>
                 <ErrorCompon>
@@ -66,15 +81,23 @@ const PlanetBlock =()=>{
             
                 
                 
-                    <ErrorCompon>
-                        <Routes>
-                            <Route path={"details/:id"} element={
-                            <PlanetDetails selectedItem={planetId}>
-                                <BlockItemText field='name' label='имя'/>
-                            </PlanetDetails>}/>
+                    {/* <EmptyComponent anyId={planetId}/> */}
+                   
+                    <Routes>
+                        <Route path={"details"} element={<EmptyComponent anyId={planetId}/>}/>
+                        <Route path={"details/:id"} element={
+                            <ErrorCompon>
+                                <PlanetDetails selectedItem={planetId}>
+                                    <BlockItemText field='name' label='имя'/>
+                                </PlanetDetails>
+                            </ErrorCompon>
+                        }/>
+        
+                    </Routes>
+            
+         
                         
-                        </Routes>
-                    </ErrorCompon>
+                    
                     
             
             </div>

@@ -32,8 +32,8 @@ const PlanetDetails = ({selectedItem,children})=>{
             {
             ({getPlanet,getPlanetImage})=>{
                 return(
-                    <ItemDetails selectedItem={selectedItem || param} 
-                    
+
+                    <ItemDetails selectedItem={selectedItem ||param} 
                     getData={getPlanet} 
                     dataImage={getPlanetImage}>
                     {children}

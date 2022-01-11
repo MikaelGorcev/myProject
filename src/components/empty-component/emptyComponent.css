@@ -1,0 +1,7 @@
+.emptyComponent {
+    margin-top: 20px;
+    background-color: #001D24;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+}

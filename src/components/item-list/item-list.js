@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 
 const ItemList =(props)=>{
-    console.log(props);
-    const {params}=props;
+   
+    
     const  renderItems=(arr)=>{
         
         return arr.map((item)=>{
             const {id}=item;
-            console.log(id);
+            
             const value =props.children(item) 
             return (<Link to={`details/${id}`} key={id}><li  onClick={()=> props.idSelect(id)}>{value}</li></Link>)
             })
