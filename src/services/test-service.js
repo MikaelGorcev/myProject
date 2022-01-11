@@ -96,11 +96,11 @@ export default class TestService {
     }
     //передает для каждой планеты свои характеристики
       getPerson= async (id)=>{
-          const person = this._people.filter(item=>item.id===id);
+          const person = this._people.filter(item=>item.id==id);
           return this._transformPerson(...person)
       }
        getPlanet= async (id)=>{
-        const planet = this._planets.filter(item=>item.id===id);
+        const planet = this._planets.filter(item=>item.id==id);
         return this._transformPlanet(...planet);
     }
      getAllShips= async ()=>{
@@ -108,7 +108,7 @@ export default class TestService {
         return res.map(this._transformStarShip)
     }
       getShip=async (id)=>{
-        const ship = this._starships.filter(item=>item.id===id);
+        const ship = this._starships.filter(item=>item.id==id);
         return this._transformStarShip(...ship)
       }
       _extractId=(item)=>{

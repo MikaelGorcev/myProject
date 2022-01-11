@@ -67,11 +67,13 @@ const PlanetBlock =()=>{
                 
                 
                     <ErrorCompon>
+                        <Routes>
+                            <Route path={"details/:id"} element={
+                            <PlanetDetails selectedItem={planetId}>
+                                <BlockItemText field='name' label='имя'/>
+                            </PlanetDetails>}/>
                         
-                        <PlanetDetails selectedItem={planetId}>
-                            <BlockItemText field='name' label='имя'/>
-                        </PlanetDetails>
-                        
+                        </Routes>
                     </ErrorCompon>
                     
             

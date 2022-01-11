@@ -10,9 +10,9 @@ const ItemList =(props)=>{
         
         return arr.map((item)=>{
             const {id}=item;
-            // const {params} = props.urlParams;
+            console.log(id);
             const value =props.children(item) 
-            return (<Link to={`${id}`} key={id}><li  onClick={()=> props.idSelect(id)}>{value}</li></Link>)
+            return (<Link to={`details/${id}`} key={id}><li  onClick={()=> props.idSelect(id)}>{value}</li></Link>)
             })
         };
     const item=renderItems(props.dataItem);

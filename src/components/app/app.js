@@ -20,7 +20,7 @@ export default class App extends React.Component {
 
     state={
         
-        swapiServis:new SwapiService(),
+        swapiServis:new TestService(),
         
         
     }
@@ -49,12 +49,12 @@ export default class App extends React.Component {
                         <Routes>
                             <Route path="/" element={
                                 <Header changeContent={this.contentChange} swapiServis={this.state.swapiServis}/> }>
-                                <Route  path="people" element={<PeopleBlock/>}/>
-                                <Route  path="ship" element={<ShipBlock/>}/>
-                                <Route  path="planet" element={<PlanetBlock/>}/>
-                                <Route  path="people/:id" element={<PersonDetails/>}/>
+                                <Route  path="people/*" element={<PeopleBlock/>}/>
+                                <Route  path="ship/*" element={<ShipBlock/>}/>
+                                <Route  path="planet/*" element={<PlanetBlock/>}/>
+                                {/* <Route  path="people/:id" element={<PersonDetails/>}/>
                                 <Route  path="ship/:id" element={<ShipDetails/>}/>         
-                                <Route  path='planet/:id' element={<PlanetDetails/>}/>  
+                                <Route  path='planet/:id' element={<PlanetDetails/>}/>   */}
                             </Route>
                         </Routes>
                         

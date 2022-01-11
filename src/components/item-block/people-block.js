@@ -2,6 +2,7 @@ import React from "react";
 import {BlockItemText} from '../item-details/item-details';
 import {PersonList,PersonDetails} from '../sw-components/index';
 import ErrorCompon from "../error-view/error-view";
+import { Routes,Route } from "react-router-dom";
 
 export default class PeopleBlock extends React.Component{
     state={personId:null};
@@ -17,9 +18,13 @@ export default class PeopleBlock extends React.Component{
             <PersonList idSelect={this.idSelectPerson} />
             </ErrorCompon>
             <ErrorCompon>
-            <PersonDetails selectedItem={this.state.personId}>
-                <BlockItemText field='name' label='имя'/>
-            </PersonDetails>
+                <Routes>
+                    <Route path={"details/:id"} element={
+                <PersonDetails selectedItem={this.state.personId}>
+                    <BlockItemText field='name' label='имя'/>
+                </PersonDetails>
+                    }/>
+                    </Routes>
             </ErrorCompon>
         </div>
         )

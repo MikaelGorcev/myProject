@@ -2,6 +2,7 @@ import React from "react";
 import {BlockItemText} from '../item-details/item-details';
 import {ShipList,ShipDetails} from '../sw-components/index';
 import ErrorCompon from "../error-view/error-view";
+import { Route,Routes } from "react-router-dom";
 
 export default class ShipBlock extends React.Component{
     state={shipId:null};
@@ -18,9 +19,12 @@ export default class ShipBlock extends React.Component{
             <ShipList idSelect={this.idSelectShip} />
             </ErrorCompon>
             <ErrorCompon>
-            <ShipDetails selectedItem={this.state.shipId}>   
-                    <BlockItemText field='name' label='имя'/>
-            </ShipDetails>
+                <Routes>
+                    <Route path={"details/:id"} element={
+                        <ShipDetails selectedItem={this.state.shipId}>   
+                                <BlockItemText field='name' label='имя'/>
+                        </ShipDetails>}/>
+                </Routes>
             </ErrorCompon>
             </div>
         
