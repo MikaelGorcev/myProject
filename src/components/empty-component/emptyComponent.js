@@ -1,5 +1,5 @@
 import './emptyComponent.css'
-
+import React from 'react';
 const EmptyComponent =()=>{
     
    

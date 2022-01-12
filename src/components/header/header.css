@@ -1,30 +1,46 @@
-.header h1{
-    
-    flex: 1.1;
-    padding-left: 20px;
-}
-.header {
+.header{
     display: flex;
-    margin-top: 15px;
-    border: 1px ;
-    border-radius: 10px; 
-    
+    justify-content: space-between;
     
 }
-.header>ul{
+
+.header h1 {
+    align-self: center;
+}
+
+.blBlock{
+   width: 300px;
+}
+
+
+.buttonBlock{
+    display: flex;
+    justify-content: space-between;
+}
+
+.linkBlock{
     list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 0;
-   flex: 1;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 }
+.linkBlock li:nth-child(4){
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.linkBlock li:nth-child(5){
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 .toggle{
-    width: 100px;
+    width: 80px;
     height: 30px;
     border-radius: 8px ;
-    align-self:center;
-    margin-right: 10px;
     background-color: #001D24;
     color: beige;
+}
+
+.chik{
+    align-self: center;
 }
