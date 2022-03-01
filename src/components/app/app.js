@@ -50,8 +50,8 @@ export default class App extends React.Component {
                             <Route index element={<h2>Welcome to San Francisco</h2>}/> 
                             <Route  path="people" element={<PeopleBlock/>}/>
                             <Route  path="ship" element={<ShipBlock/>}/>
-                            <Route  path="planet/*" element={<PlanetBlock/>}/>
-                            {/* <Route  path='planet/:id' element={<PlanetDetails/>}/>   */}
+                            <Route  path="planet/" element={<PlanetBlock/>}/>
+                             <Route  path='planet/:id' element={<PlanetDetails/>}/> 
                         </Routes>
                 </BrowserRouter>
             </Provider>
