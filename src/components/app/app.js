@@ -10,10 +10,7 @@ import LoginPage from "../pages/login-page";
 import "./app.css";
 
 export default class App extends React.Component {
-  state = {
-    logged: false,
-  };
-
+ 
   render() {
     return (
       // <Provider value={this.state.swapiServis}>

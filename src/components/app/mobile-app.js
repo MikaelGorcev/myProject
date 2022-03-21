@@ -9,11 +9,7 @@ import "./mobile-app.css";
 import HeaderMobile from "../header/header-mobile";
 
 export default class MobileApp extends React.Component {
-  state = {
-    logged: false,
-    // swapiServis:new TestService(),
-  };
-
+ 
   render() {
     return (
       // <Provider value={this.state.swapiServis}>
