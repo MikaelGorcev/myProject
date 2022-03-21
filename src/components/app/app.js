@@ -10,6 +10,7 @@ import LoginPage from "../pages/login-page";
 import "./app.css";
 
 export default class App extends React.Component {
+
  
   render() {
     return (
@@ -47,4 +48,3 @@ export default class App extends React.Component {
       // </Provider>
     );
   }
-}

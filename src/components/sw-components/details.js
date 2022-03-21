@@ -22,6 +22,7 @@ const PersonDetails = ({ selectedItem, children }) => {
     </Consumer>
   );
 };
+
 const PlanetDetails = ({ selectedItem, children }) => {
   const param = useParams().id;
 
@@ -41,6 +42,7 @@ const PlanetDetails = ({ selectedItem, children }) => {
       }}
     </Consumer>
   );
+
 };
 const ShipDetails = ({ selectedItem, children }) => {
   const param = useParams().id;
@@ -62,4 +64,6 @@ const ShipDetails = ({ selectedItem, children }) => {
   );
 };
 
+
 export { PersonDetails, PlanetDetails, ShipDetails };
+
