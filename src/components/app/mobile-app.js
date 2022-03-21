@@ -1,16 +1,14 @@
 import React from "react";
-import Header from "../header/header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PeopleBlock from "../item-block/people-block";
 import PlanetBlock from "../item-block/planet-block";
 import ShipBlock from "../item-block/ship-block";
 import SecPage from "../pages/sec-page";
-
 import LoginPage from "../pages/login-page";
-import "./app.css";
+import "./mobile-app.css";
+import HeaderMobile from "../header/header-mobile";
 
-export default class App extends React.Component {
-
+export default class MobileApp extends React.Component {
  
   render() {
     return (
@@ -20,7 +18,7 @@ export default class App extends React.Component {
           <Route
             path="/"
             element={
-              <Header
+              <HeaderMobile
                 changeContent={this.props.contentChange}
                 swapiServis={this.props.swapiServis}
               />
@@ -48,3 +46,4 @@ export default class App extends React.Component {
       // </Provider>
     );
   }
+}

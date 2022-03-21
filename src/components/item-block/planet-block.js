@@ -1,52 +1,41 @@
 import React from "react";
-import {BlockItemText} from '../item-details/item-details';
-import {PlanetList,PlanetDetails} from '../sw-components/index';
-import { Routes,Route } from "react-router-dom";
+import { BlockItemText } from "../item-details/item-details";
+import { PlanetList, PlanetDetails } from "../sw-components/index";
+import { useState } from "react";
+import EmptyComponent from "../empty-component/emptyComponent";
+import { Route, Routes } from "react-router-dom";
 import ErrorCompon from "../error-view/error-view";
+import "./element-block.css";
+const PlanetBlock = () => {
+  const [planetId, setPlanetId] = useState(null);
 
+  const idSelectPlanet = (id) => {
+    setPlanetId(id);
+  };
 
-import withItemId from "../hoc-helpers/with-item-id";
-
-
-export default class PlanetBlock extends React.Component{
-    state={
-        planetId:null,
-    };
-    idSelectPlanet=(id)=>{
-
-        this.setState({planetId:id});
-    }
-    
-    render(){
-      
-        const BlockPlanetDetails = ({...props})=>{
-            console.log({...props});
-            return(
-                <PlanetDetails {...props}>
-                    <BlockItemText field='name' label='имя'/>
-                </PlanetDetails>
-                        
-                )}
-        //const WithItemIdBlock=withItemId(BlockPlanetDetails,this.state.planetId)
-        
-
-        return(
-            <div className='d-flex justify-content-between'>
+  return (
+    <div className="element-block">
+      <ErrorCompon>
+        <PlanetList idSelect={idSelectPlanet} />
+      </ErrorCompon>
+      <Routes>
+        <Route path={"details"} element={<EmptyComponent anyId={planetId} />} />
+        <Route
+          path={"details/:id"}
+          element={
             <ErrorCompon>
-                <PlanetList idSelect={this.idSelectPlanet} /*planetId={this.state.planetId}*//>
-                {/* <Link to={`planet/${this.state.planetId}`}></Link> */}
+              <PlanetDetails selectedItem={planetId}>
+                <BlockItemText label="имя" field="name" />
+                <BlockItemText label="население" field="population" />
+                <BlockItemText label="имя" field="rotationPeriod" />
+                <BlockItemText label="диаметр" field="diameter" />
+              </PlanetDetails>
             </ErrorCompon>
-            
-                <ErrorCompon>
-                <Routes>
-                    <Route path="details/:id" element={withItemId(BlockPlanetDetails,this.state.planetId)}>
-                    </Route>
-                </Routes>
-                </ErrorCompon>
-                
-            
-        </div>
-        
-        )
-    }
-}
+          }
+        />
+      </Routes>
+    </div>
+  );
+};
+
+export default PlanetBlock;

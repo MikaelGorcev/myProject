@@ -2,32 +2,43 @@ import withData from "../hoc-helpers/with-data";
 import ItemList from "../item-list/item-list";
 import withSwapiService from "../hoc-helpers/with-swapi-service";
 
-const whithChildList = (Wrapper,child)=>{
+const whithChildList = (Wrapper, child) => {
+  return (props) => {
+    return <Wrapper {...props}>{child}</Wrapper>;
+  };
+};
+const name = (item) => item.name;
+const model = (item) => <span>{item.model}</span>;
+//const abort=(swapiService)=>({abort:swapiService.controller})
+const mapSwapiServicePeople = (swapiService) => {
+  return {
+    getDataSetItemsFromSwapi: swapiService.getAllPeople,
+    abort: swapiService.onAbort,
+  };
+};
+const mapSwapiServicePlanets = (swapiService) => {
+  return {
+    getDataSetItemsFromSwapi: swapiService.getAllPlanets,
+    abort: swapiService.onAbort,
+  };
+};
+const mapSwapiServiceShips = (swapiService) => {
+  return {
+    getDataSetItemsFromSwapi: swapiService.getAllShips,
+    abort: swapiService.onAbort,
+  };
+};
 
-return (props)=>{
+//withAbortSwapiServiceShips(mapSwapiServicePeople,mapSwapiServicePlanets,mapSwapiServiceShips)
 
-    return (
-            <Wrapper {...props}>
-               {child }
-            </Wrapper>
-           )
-        }
+const PersonList = withSwapiService(mapSwapiServicePeople)(
+  withData(whithChildList(ItemList, name))
+);
+const PlanetList = withSwapiService(mapSwapiServicePlanets)(
+  withData(whithChildList(ItemList, name))
+);
+const ShipList = withSwapiService(mapSwapiServiceShips)(
+  withData(whithChildList(ItemList, model))
+);
 
-}
-const name = (item)=>item.name;
-const model = (item)=><span>{item.model}</span>
- 
-const mapSwapiServicePeople= (swapiService)=>{
-   return {dataItem:swapiService.getAllPeople}
-}
-const mapSwapiServicePlanets= (swapiService)=>{
-   return {dataItem:swapiService.getAllPlanets}
-}
-const mapSwapiServiceShips= (swapiService)=>{
-   return {dataItem:swapiService.getAllShips}
-}
-const PersonList = withSwapiService(mapSwapiServicePeople)(withData(whithChildList(ItemList,name)));
-const PlanetList =  withSwapiService(mapSwapiServicePlanets)(withData(whithChildList(ItemList,name)));
-const ShipList =  withSwapiService(mapSwapiServiceShips)(withData(whithChildList(ItemList,model)));
-
-export{PersonList, PlanetList, ShipList};
+export { PersonList, PlanetList, ShipList };

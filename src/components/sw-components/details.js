@@ -2,63 +2,68 @@ import ItemDetails from "../item-details/item-details";
 import { Consumer } from "../swapi-service-context/swapi-service-context";
 import { useParams } from "react-router-dom";
 
+const PersonDetails = ({ selectedItem, children }) => {
+  const param = useParams().id;
 
-
-
-const PersonDetails = ({selectedItem,children})=>{
-    
-    
-    return(
-            <Consumer>
-                {
-                    ({getPerson,getPersonImage})=> {
-                        return(
-                            <ItemDetails selectedItem={selectedItem} 
-                            getData={getPerson} 
-                            dataImage={getPersonImage}>
-                            {children}
-                            </ItemDetails>
-                            )
-                        }
-                }
-            </Consumer>
-        )
-};
-const PlanetDetails = ({selectedItem,children})=>{
-    const {id} = useParams();
-    return(
-        <Consumer>
-            {
-            ({getPlanet,getPlanetImage})=>{
-                return(
-                    <ItemDetails selectedItem={selectedItem ?? id} 
-                    getData={getPlanet} 
-                    dataImage={getPlanetImage}>
-                    {children}
-                    </ItemDetails>
-                    )
-                }
-            }
-        </Consumer>
-        )
-};
-const ShipDetails = ({selectedItem,children})=>{
-    
-    return(
-        <Consumer>
-            {
-                ({getShip,getShipImage})=> {
-                    return(
-                        <ItemDetails selectedItem={selectedItem} 
-                        getData={getShip} 
-                        dataImage={getShipImage}>
-                        {children}
-                        </ItemDetails>
-                        )
-                    }
-            }
-        </Consumer>
-    )
+  return (
+    <Consumer>
+      {({ getPerson, getPersonImage, onAbort }) => {
+        return (
+          <ItemDetails
+            selectedItem={selectedItem || param}
+            getData={getPerson}
+            abort={onAbort}
+            dataImage={getPersonImage}
+          >
+            {children}
+          </ItemDetails>
+        );
+      }}
+    </Consumer>
+  );
 };
 
-export{PersonDetails, PlanetDetails, ShipDetails};
+const PlanetDetails = ({ selectedItem, children }) => {
+  const param = useParams().id;
+
+  return (
+    <Consumer>
+      {({ getPlanet, getPlanetImage, onAbort }) => {
+        return (
+          <ItemDetails
+            selectedItem={selectedItem || param}
+            getData={getPlanet}
+            abort={onAbort}
+            dataImage={getPlanetImage}
+          >
+            {children}
+          </ItemDetails>
+        );
+      }}
+    </Consumer>
+  );
+
+};
+const ShipDetails = ({ selectedItem, children }) => {
+  const param = useParams().id;
+  return (
+    <Consumer>
+      {({ getShip, getShipImage, onAbort }) => {
+        return (
+          <ItemDetails
+            selectedItem={selectedItem || param}
+            getData={getShip}
+            abort={onAbort}
+            dataImage={getShipImage}
+          >
+            {children}
+          </ItemDetails>
+        );
+      }}
+    </Consumer>
+  );
+};
+
+
+export { PersonDetails, PlanetDetails, ShipDetails };
+

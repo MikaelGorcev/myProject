@@ -1,0 +1,13 @@
+.emptyComponent {
+  margin-top: 20px;
+  background-color: #001d24;
+  border-radius: 10px;
+  width: 49%;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .emptyComponent {
+    width: 100%;
+  }
+}
