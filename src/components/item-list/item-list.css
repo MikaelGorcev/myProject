@@ -1,6 +1,22 @@
-.item-list{
-    margin-top: 20px;
-    background-color: #001D24;
-    border-radius: 10px;
-    width: 40%;
+.item-list {
+  margin-top: 20px;
+  padding-right: 20px;
+  background-color: #001d24;
+  border-radius: 10px;
+  width: 49%;
+  height: 224px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .item-list {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }

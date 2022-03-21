@@ -1,18 +1,40 @@
-.person-details img{
-    max-width: 200px;
-    max-height: 200px;
+.person-details {
+  margin: 20px 0;
+  background-color: #001d24;
+  border-radius: 10px;
+  width: 49%;
+  padding: 10px 0;
 }
-.person-details{
-    margin-top: 20px;
-    background-color: #001D24;
-    border-radius: 10px;
-    width: 40%;
-    
+
+.person-details > img {
+  border-radius: 5%;
+  display: block;
+  margin: 0 auto;
+  max-width: 250px;
+  height: 244px;
+}
+
+.loaderForPicture {
+  width: 100%;
+}
+.test {
+  margin: 0 auto;
+}
+.person-details button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
 }
 .empty {
-    margin-top: 20px;
-    background-color: #001D24;
-    border-radius: 10px;
-    width: 40%;
-    text-align: center;
+  margin-top: 20px;
+  background-color: #001d24;
+  border-radius: 10px;
+  width: 40%;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .person-details {
+    width: 100%;
+  }
 }

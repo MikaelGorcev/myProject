@@ -1,0 +1,28 @@
+.formForValid {
+  width: 30%;
+  margin: 20px auto;
+  border: 1px solid #b58900;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 10px 5px 5px #b58900;
+}
+.formForValid > form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.formForValid input {
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.formForValid .toggle {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+@media (max-width: 500px) {
+  .formForValid {
+    width: 100%;
+  }
+}

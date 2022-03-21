@@ -1,27 +1,48 @@
-.random-planet{
-    
-    margin:20px 0px;
-    background-color: #001D24;
-    border-radius: 10px;
-    width: fit-content;
-    
+.random-planet {
+  background-color: #001d24;
+  border-radius: 10px;
+  margin: 20px 0;
 }
-.random-planet img{
-    border-radius: 10px;
-    min-width: 300px;
+.random-planet img {
+  border-radius: 10px;
+  width: 300px;
+  height: 350px;
 }
-.random-planet__discription{
-    width: 100%;
-    flex-direction: column;
-    
+.random-planet .mokkaloader {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 350px;
 }
-.random-planet__discription h3{
-    margin: 10px ;border-bottom: gray 1px solid;width: 200px;
+.random-planet__discription {
+  width: 100%;
+  flex-direction: column;
+}
+.random-planet__discription h3 {
+  margin: 10px;
+  border-bottom: gray 1px solid;
 }
 .random-planet__discription p {
-    border-bottom: gray 1px solid;width: 200px;
-   
-    margin-left: 10px;
-    
-    
+  border-bottom: gray 1px solid;
+  margin: 10px;
+}
+.random-btn {
+  width: 100%;
+  background-color: #b58900;
+}
+
+@media (max-width: 542px) {
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .random-planet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .random-planet img {
+    display: block;
+    margin: 20px auto 0;
+    width: 90%;
+  }
 }
